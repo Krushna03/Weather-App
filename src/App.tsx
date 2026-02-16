@@ -30,11 +30,11 @@ function App() {
     fetchWeather('Pune');
   }, [fetchWeather]);
 
-  // Updates the real-time weather after every 1000 seconds or 16 minutes
+  // Updates the real-time weather after every 100 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       fetchWeather(city);
-    }, 1000000);
+    }, 100000);
 
     return () => clearInterval(interval);
   }, [city, fetchWeather]);
@@ -44,13 +44,17 @@ function App() {
       <div className="glass-panel">
         <h1 className="title">Weather App</h1>
 
-        <SearchBar onSearch={fetchWeather} isLoading={loading} />
+        <SearchBar
+          onSearch={fetchWeather}
+          isLoading={loading}
+          onReset={() => fetchWeather('Pune')}
+        />
 
         {loading && <div className="loader"></div>}
 
         {error && <div className="error-msg">{error}</div>}
 
-        {weather && !loading && (
+        {weather && !loading && !error && (
           <>
             <WeatherDisplay weather={weather} />
             <p className="subtitle">The weather report updates after every 100 seconds</p>

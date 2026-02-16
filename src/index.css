@@ -65,13 +65,14 @@ input {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 14px 20px;
+  padding-right: 90px;
   border-radius: 12px;
   color: white;
   font-size: 1rem;
   outline: none;
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   transition: all 0.3s ease;
   text-align: left;
 }
@@ -108,6 +109,56 @@ input:disabled {
   to { transform: rotate(360deg); }
 }
 
+/* Search Component */
+.search-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.search-actions {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.icon-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.mini-loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s ease-in-out infinite;
+}
+
 .error-msg {
   color: #fca5a5;
   margin-top: 1rem;
@@ -123,4 +174,6 @@ input:disabled {
   margin-top: 2rem;
   letter-spacing: 0.02em;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
 }
